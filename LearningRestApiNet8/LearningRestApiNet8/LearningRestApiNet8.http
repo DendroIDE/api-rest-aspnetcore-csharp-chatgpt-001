@@ -1,0 +1,6 @@
+@LearningRestApiNet8_HostAddress = http://localhost:5299
+
+GET {{LearningRestApiNet8_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
