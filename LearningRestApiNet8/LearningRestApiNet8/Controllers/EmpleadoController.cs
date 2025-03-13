@@ -1,3 +1,5 @@
+using LearningRestApiNet8.Models;
+using LearningRestApiNet8.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,17 +9,34 @@ namespace LearningRestApiNet8.Controllers
     [ApiController]
     public class EmpleadoController : ControllerBase
     {
+        private readonly IEmpleadoService _empleadoService;
+
+        public EmpleadoController(IEmpleadoService empleadoService)
+        {
+            _empleadoService = empleadoService;
+        }
+
         [HttpGet]
         public IActionResult ObtenerEmpleados()
         {
-            var empleados = new List<object>
-            {
-                new { Id = 1, Nombre = "Juan", Apellido = "Perez", Cargo = "Gerente" },
-                new { Id = 2, Nombre = "Maria", Apellido = "Gomez", Cargo = "Analista" },
-                new { Id = 3, Nombre = "Pedro", Apellido = "Garcia", Cargo = "Desarrollador" }
-            };
+            return Ok(_empleadoService.ObtenerTodos());
+        }
 
-            return Ok(empleados);
+        [HttpGet("{id}")]
+        public IActionResult ObtenerEmpleado(int id)
+        {
+            var empleado = _empleadoService.ObtenerPorId(id);
+            if (empleado == null)
+                return NotFound();
+
+            return Ok(empleado);
+        }
+
+        [HttpPost]
+        public IActionResult CrearEmpleado([FromBody] Empleado empleado)
+        {
+            _empleadoService.Agregar(empleado);
+            return CreatedAtAction(nameof(ObtenerEmpleado), new { id = empleado.Id }, empleado);
         }
     }
 }

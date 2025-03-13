@@ -1,5 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using LearningRestApiNet8.Data;
+using LearningRestApiNet8.Repositories;
+using LearningRestApiNet8.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+// Configurar SQLite
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
+builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
 // Add services to the container.
 builder.Services.AddControllers();
 
