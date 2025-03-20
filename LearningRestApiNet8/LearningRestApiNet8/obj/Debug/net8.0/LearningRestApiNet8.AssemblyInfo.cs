@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearningRestApiNet8")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94c8920d628788dd0538ddf9d6801c6c63358e43")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+246f3cb88dc5ba72b45b49415d2d6e4f88ed67e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearningRestApiNet8")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearningRestApiNet8")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
