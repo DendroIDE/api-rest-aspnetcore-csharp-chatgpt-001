@@ -7,8 +7,8 @@ namespace LearningRestApiNet8.DTOs;
 /// </summary>
 public class RegisterDTO
 {
-    public string Nombre { get; set; }  // Nombre completo del usuario
-    public string Email { get; set; }  // Correo electrónico del usuario
-    public string Password { get; set; }  // Contraseña del usuario
-    public string ConfirmPassword { get; set; }  // Confirmación de la contraseña
+    public required string Nombre { get; set; }  // Nombre completo del usuario
+    public required string Email { get; set; }  // Correo electrónico del usuario
+    public required string Password { get; set; }  // Contraseña del usuario
+    public required string ConfirmPassword { get; set; }  // Confirmación de la contraseña
 }
